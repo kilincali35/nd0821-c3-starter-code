@@ -109,7 +109,7 @@ async def ingest_data(inference: InputData):
                     ]
 
     # if saved model exits, load the model from disk
-    if os.path.isfile(os.path.join(savepth,filename[0])):
+    if os.path.isfile(os.path.join(model_savepth,filename[0])):
         model = pickle.load(open(os.path.join(model_savepth,filename[0]), "rb"))
         lb = pickle.load(open(os.path.join(model_savepth,filename[1]), "rb"))
         

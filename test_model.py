@@ -36,7 +36,7 @@ def features():
     """
     Fixture - will return the categorical features as argument
     """
-	final_list = []
+    final_list = []
     cat_features = ['workclass',
 					'education',
 					'marital-status',
@@ -46,10 +46,10 @@ def features():
 					'sex',
 					'native-country']
 	
-	target = ['salary']
-	num_features = [col for col in data.columns if col not in cat_features + target]
+    target = ['salary']
+    num_features = [col for col in data.columns if col not in cat_features + target]
 	
-	return cat_features, num_features, target
+    return cat_features, num_features, target
 
 
 @pytest.fixture(scope="module")
@@ -58,7 +58,7 @@ def train_dataset(data, features):
     Fixture - returns cleaned train dataset to be used for model testing
     """
 	
-	cat_features, num_features, target = features
+    cat_features, num_features, target = features
 	
     train, val = train_test_split(data, 
                                 test_size=0.20, 
@@ -66,11 +66,11 @@ def train_dataset(data, features):
                                 stratify=data['salary']
                                 )
 								
-	X_train, y_train, cat_cols, num_cols, lb = process_data(
-    train,
-    categorical_features=cat_features,
-    label="salary",
-    training=True)	
+    X_train, y_train, cat_cols, num_cols, lb = process_data(
+                            train,
+                            categorical_features=cat_features,
+                            label="salary",
+                            training=True)	
 	
     return X_train, y_train, val
 
@@ -121,6 +121,7 @@ def test_inference(train_dataset, model_path):
     """
     Check inference function
     """
+    savepath = model_path
     X_train, y_train, val = train_dataset
 
     savepath = model_path

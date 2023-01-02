@@ -18,7 +18,7 @@ from lightgbm import LGBMClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import make_pipeline, Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 import pandas as pd
 from datetime import datetime
 import timeit
