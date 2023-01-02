@@ -10,7 +10,7 @@ from typing import Union, Optional
 from pydantic import BaseModel
 import pandas as pd
 import os, pickle
-from ml.data import process_data
+from data import process_data
 
  # path to saved artifacts
 model_savepth = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/starter/model"
