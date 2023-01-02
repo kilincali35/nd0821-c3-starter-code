@@ -18,17 +18,20 @@ from ml.data import process_data
 @pytest.fixture(scope="module")
 def data():
     # code to load in the data.
-    csv_path = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/data/census_modified.csv"
+    # csv_path = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/data/census_modified.csv"
+    csv_path = "./data/census_modified.csv"
     return pd.read_csv(csv_path)
 
 
 @pytest.fixture(scope="module")
 def path():
-    return "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/data/census_modified.csv"
+    # return "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/data/census_modified.csv"
+    return "./data/census_modified.csv"
 	
 @pytest.fixture(scope="module")
 def model_path():
-    return "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/model/trained_model.pkl"
+    # return "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/model/trained_model.pkl"
+    return "./model/trained_model.pkl"
 
 
 @pytest.fixture(scope="module")
