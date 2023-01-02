@@ -121,7 +121,7 @@ async def ingest_data(inference: InputData):
                                 )
 
     # get model prediction which is a one-dim array like [1]                            
-    preds = model.predict(sample)
+    preds = model.predict(sample_data)
     
     preds_orig = lb.inverse_transform(preds)
      
