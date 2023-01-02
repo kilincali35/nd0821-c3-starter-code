@@ -138,13 +138,13 @@ def test_inference(train_dataset, model_path):
         pass
 
 def test_val_dataset(train_dataset):
-	"""
-	Tests if validation set is created correctly
-	"""
-	
-	X_train, y_train, val = train_dataset
-	
-	# Check the val shape, to see if there is data
+    """
+    Tests if validation set is created correctly
+    """
+
+    X_train, y_train, val = train_dataset
+
+    # Check the val shape, to see if there is data
     try:
         assert val.shape[0] > 0
         assert val.shape[1] > 0
@@ -153,7 +153,6 @@ def test_val_dataset(train_dataset):
         logging.error(
         "Testing validation split: The validation dataset doesn't appear to have rows and columns")
         raise err
-	
 
 def test_compute_model_metrics(train_dataset, model_path):
     """
