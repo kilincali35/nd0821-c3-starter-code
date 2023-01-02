@@ -64,9 +64,9 @@ app = FastAPI(  title="Inference API",
 async def startup_event(): 
     global model, encoder, lb
     # if saved model exits, load the model from disk
-    if os.path.isfile(os.path.join(model_savepath,filename[0])):
-        model = pickle.load(open(os.path.join(model_savepath,filename[0]), "rb"))
-        lb = pickle.load(open(os.path.join(model_savepath,filename[1]), "rb"))
+    if os.path.isfile(os.path.join(model_savepth,filename[0])):
+        model = pickle.load(open(os.path.join(model_savepth,filename[0]), "rb"))
+        lb = pickle.load(open(os.path.join(model_savepth,filename[1]), "rb"))
 
 
 @app.get("/")
@@ -109,9 +109,9 @@ async def ingest_data(inference: InputData):
                     ]
 
     # if saved model exits, load the model from disk
-    if os.path.isfile(os.path.join(savepath,filename[0])):
-        model = pickle.load(open(os.path.join(model_savepath,filename[0]), "rb"))
-        lb = pickle.load(open(os.path.join(model_savepath,filename[1]), "rb"))
+    if os.path.isfile(os.path.join(savepth,filename[0])):
+        model = pickle.load(open(os.path.join(model_savepth,filename[0]), "rb"))
+        lb = pickle.load(open(os.path.join(model_savepth,filename[1]), "rb"))
         
     sample_x,sample_y,cat_cols,num_cols, lb_from_proc = process_data(
                                 sample_data, 
