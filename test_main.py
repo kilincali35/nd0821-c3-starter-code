@@ -48,8 +48,8 @@ def test_inference():
 
     # test response and output
     assert r.status_code == 200
-    assert r.json()["capital_gain"] == 0
-    assert r.json()["hours_per_week"] == 50
+    assert r.json()["capital-gain"] == 0
+    assert r.json()["hours-per-week"] == 50
 
     # test prediction vs expected label
     logging.info(f'********* prediction = {r.json()["prediction"]} ********')
@@ -83,7 +83,7 @@ def test_inference_class0():
     # test response and output
     assert r.status_code == 200
     assert r.json()["race"] == "Black"
-    assert r.json()["capital_loss"] == 0
+    assert r.json()["capital-loss"] == 0
 
     # test prediction vs expected label
     logging.info(f'********* prediction = {r.json()["prediction"]} ********')
