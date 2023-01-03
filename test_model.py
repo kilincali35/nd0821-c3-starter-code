@@ -48,9 +48,11 @@ def features():
 					'race',
 					'sex',
 					'native-country']
+                    
+    df = data
 	
     target = ['salary']
-    num_features = [col for col in data.columns if col not in cat_features + target]
+    num_features = [col for col in df.columns if col not in cat_features + target]
 	
     return cat_features, num_features, target
 
