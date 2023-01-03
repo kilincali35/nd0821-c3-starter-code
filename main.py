@@ -13,7 +13,7 @@ import os, pickle
 from ml.data import process_data
 
  # path to saved artifacts
-model_savepth = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/starter/model"
+model_savepth = "./model"
 filename = ['trained_model.pkl', 'labelizer.pkl']
 
 # We are declaring data object with columns and column dtypes
