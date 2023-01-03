@@ -20,7 +20,9 @@ def data():
     # code to load in the data.
     # csv_path = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/data/census_modified.csv"
     csv_path = "./data/census_modified.csv"
-    return pd.read_csv(csv_path)
+    
+    df = pd.read_csv(csv_path)
+    return df
 
 
 @pytest.fixture(scope="module")
