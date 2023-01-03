@@ -37,7 +37,7 @@ def model_path():
 
 
 @pytest.fixture(scope="module")
-def features():
+def features(data):
     """
     Fixture - will return the categorical features as argument
     """
