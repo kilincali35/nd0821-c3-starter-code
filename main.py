@@ -125,9 +125,12 @@ async def ingest_data(inference: InputData):
     
     preds_orig = lb.inverse_transform(preds)
      
-    data['prediction'] = preds_orig
-
-    return data
+    preds_orig = preds_orig.tolist()
+    
+    return preds_orig
+    
+    #data['prediction'] = preds_orig
+    #return data
 
 
 if __name__ == '__main__':
