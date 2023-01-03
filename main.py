@@ -95,6 +95,7 @@ async def ingest_data(inference: InputData):
 
     # prepare the sample for inference as a dataframe
     sample_data = pd.DataFrame(data, index=[0])
+    print(sample_data)
 
     # apply transformation to sample data
     cat_features = [
@@ -122,15 +123,17 @@ async def ingest_data(inference: InputData):
 
     # get model prediction which is a one-dim array like [1]                            
     preds = model.predict(sample_x)
+    print(preds)
     
     preds_orig = lb.inverse_transform(preds)
+    print(preds_orig)
      
-    preds_orig = preds_orig.tolist()
+    data['prediction'] = preds_orig
+    print(data)
     
-    return preds_orig
-    
-    #data['prediction'] = preds_orig
-    #return data
+    sample_data['prediction'] = preds_orig
+    print(sample_data)
+    return data
 
 
 if __name__ == '__main__':
