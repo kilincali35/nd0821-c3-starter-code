@@ -113,7 +113,7 @@ async def ingest_data(inference: InputData):
         model = pickle.load(open(os.path.join(model_savepth,filename[0]), "rb"))
         lb = pickle.load(open(os.path.join(model_savepth,filename[1]), "rb"))
         
-    sample_x,sample_y,cat_cols,num_cols, lb_from_proc = process_data(
+    sample_x,_,_,_, _ = process_data(
                                 sample_data, 
                                 categorical_features=cat_features, 
                                 training=False, 
@@ -121,7 +121,7 @@ async def ingest_data(inference: InputData):
                                 )
 
     # get model prediction which is a one-dim array like [1]                            
-    preds = model.predict(sample_data)
+    preds = model.predict(sample_x)
     
     preds_orig = lb.inverse_transform(preds)
      
