@@ -6,9 +6,9 @@ This script is used to run whole training model process. It is feeded from side 
 """
 # Script to train machine learning model.
 
-from data import process_data
-from model import train_model, compute_model_metrics, inference, compute_slices
-from model import compute_confusion_matrix
+from ml.data import process_data
+from ml.model import train_model, compute_model_metrics, inference, compute_slices
+from ml.model import compute_confusion_matrix
 from sklearn.model_selection import train_test_split
 import pickle, os
 import pandas as pd
@@ -33,7 +33,7 @@ logging.basicConfig(filename='train_model_logging.log',
                     format='%(name)s - %(levelname)s - %(message)s')
 
 # Part that will fetch the data
-csv_path = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/starter/data/census_modified.csv"
+csv_path = "./data/census_modified.csv"
 df = pd.read_csv(csv_path)
 
 # Here I am splitting data into Train and Validation sets. Inside Train data
@@ -72,7 +72,7 @@ X_val, y_val, cat_cols_pass, num_cols_pass, lb_pass = process_data(
 )
 
 # check if trained model already exists
-model_savepth = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/starter/model"
+model_savepth = "./model"
 filename = ['trained_model.pkl', 'labelizer.pkl']
 
 # if saved model exits, load the model from disk
@@ -103,7 +103,7 @@ logging.info(f"Confusion matrix:\n{cm}")
 
 # Compute performance on slices for categorical features
 # save results in a new txt file
-slice_savepath = "/mnt/c/Users/tutkukilinc/nd0821-c3-starter-code/starter/model/slice_output.txt"
+slice_savepath = "./model/slice_output.txt"
 remove_if_exists(slice_savepath)
 
 # iterate through the categorical features and save results to log and txt file
